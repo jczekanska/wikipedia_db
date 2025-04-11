@@ -1,0 +1,6 @@
+notes.txt
+__docker-compose.yml
+_docker-compose.yml
+
+# Currently irrelevant default system database
+db/data/*

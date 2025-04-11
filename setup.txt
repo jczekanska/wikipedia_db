@@ -1,0 +1,20 @@
+1. Have Docker desktop installed
+2. Pull latest GH changes
+3. Open terminal in the project folder
+4. docker-compose build
+5. docker-compose up -d
+
+To enter the command line of a particular machine (system / db), use:
+docker exec -it <container_name> bash
+
+1. System -> Ubuntu 22, place from where we will execute scripts to manipulate the database
+2. Db -> Neo4J image, database engine
+
+Cypher-shell installation:
+wget -O - https://debian.neo4j.com/neotechnology.gpg.key | sudo apt-key add -
+echo 'deb https://debian.neo4j.com stable 5' | sudo tee /etc/apt/sources.list.d/neo4j.list
+apt-get update -y
+apt-get install -y cypher-shell
+
+To launch the cypher shell, use the command:
+cypher-shell -u neo4j -p password -a db

@@ -1,0 +1,36 @@
+# my-version: 3
+
+version: "3"
+services:
+  system:
+    container_name: system
+    build:
+      context: ./system # Location of the Dockerfile
+      dockerfile: Dockerfile
+    command: tail -f /dev/null # Commad executed upon startup
+    stdin_open: true
+    tty: true
+    ports:
+      - 3000:3000
+    volumes:
+      - type: bind
+        source: ./system/scripts
+        target: /home/dbuser/scripts
+  db:
+    container_name: db
+    ports:
+      - 7474:7474
+      - 7687:7687
+      - 7473:7473
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    volumes:
+      # Database files location
+      - type: bind
+        source: ./db/data
+        target: /var/lib/neo4j/data
+      # CSV file with setup data
+      - type: bind
+        source: ./db/setup-data
+        target: /var/lib/neo4j/import
