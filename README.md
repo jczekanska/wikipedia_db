@@ -56,7 +56,7 @@ Which will provide access to said console.
 
 ### Populating the database
 
-To populate the database with Wikipedia categories as nodes in the Docker console, launch the `import.sh` file located in `/home/dbuser/scripts` with the command `./import.sh`.
+To populate the database with Wikipedia categories as nodes in the Docker console, launch the `import.sh` file located in `/home/dbuser/scripts` with the command `./import.sh` (this may take a while).
 This script uses the Neo4j APOC library and imports the nodes and relationships in batches.
 
 # Usage
